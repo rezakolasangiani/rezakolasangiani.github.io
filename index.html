@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reza Kolasangiani | Computational Biologist · Harvard Medical School</title>
+  <title>Reza Kolasangiani | Computational Biophysicist · Harvard Medical School</title>
+  <meta name="description" content="Reza Kolasangiani — Postdoctoral Fellow at Harvard Medical School & Mass General Hospital, studying mitochondrial membrane dynamics through molecular dynamics simulations and AI-driven protein design." />
+  <meta property="og:title" content="Reza Kolasangiani | Computational Biophysicist" />
+  <meta property="og:description" content="Postdoctoral Fellow at Harvard Medical School & Mass General Hospital — mitochondrial membrane dynamics, molecular dynamics simulations, and AI-driven protein design." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a2e4a'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='56' font-weight='700' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
@@ -322,17 +327,18 @@
 <section id="home">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="eyebrow"><i class="fas fa-atom"></i> Computational Biologist &amp; Bioengineer</div>
+      <div class="eyebrow"><i class="fas fa-atom"></i> Computational Biophysicist</div>
       <h1>Reza Kolasangiani</h1>
-      <p class="title-line">Postdoctoral Research Fellow</p>
-      <p class="institution">Harvard Medical School</p>
+      <p class="title-line">Postdoctoral Fellow</p>
+      <p class="institution">Harvard Medical School &amp; Mass General Hospital</p>
       <p class="lab-line">Chao Lab &nbsp;·&nbsp; Boston, MA</p>
       <p class="bio-short">
-        I study how cells sense and respond to mechanical forces at the molecular level.
-        Using all-atom molecular dynamics simulations and computational modeling,
-        my research reveals how integrins — key proteins at the cell–matrix interface —
-        change shape in response to biochemical and mechanical cues,
-        with implications for cancer, thrombosis, and therapeutic design.
+        I study how proteins shape mitochondrial membrane architecture and dynamics —
+        combining all-atom molecular dynamics, AI-driven protein design
+        (RFdiffusion, AlphaFold), and high-performance computing.
+        My work bridges structural biophysics and generative machine learning
+        to reveal structure–function relationships in complex membrane systems,
+        with relevance to neurodegenerative and metabolic disease.
       </p>
       <div class="hero-actions">
         <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> My Research</a>
@@ -348,7 +354,7 @@
     <div class="hero-photo">
       <div style="position:relative;">
         <div class="photo-frame" id="photoFrame">
-          <img src="profile.jpg" alt="Reza Kolasangiani"
+          <img src="profile.JPG" alt="Reza Kolasangiani"
                onload="document.getElementById('photoInit').style.display='none';"
                onerror="this.style.display='none'; document.getElementById('photoInit').style.display='flex';" />
           <div id="photoInit" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
@@ -373,31 +379,43 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I am a Postdoctoral Research Fellow in the Chao Lab at Harvard Medical School,
-          where I continue my work at the interface of computational biology, mechanobiology,
-          and therapeutic discovery.
+          I am a computational biophysicist and Postdoctoral Fellow in
+          <strong>Dr. Luke Chao's</strong> lab at Harvard Medical School and
+          Massachusetts General Hospital, where I investigate the molecular mechanisms
+          governing mitochondrial membrane architecture, dynamics, and cristae remodeling.
+          I combine physics-based modeling with AI-driven protein design to understand
+          how proteins regulating inner and outer mitochondrial membranes drive
+          structural transitions that shape organelle function.
         </p>
         <p>
-          I completed my PhD and MS in Bioengineering at the University of Utah (GPA 3.98/4.0),
-          where I spent four years in the Computational Biology Lab investigating integrin
-          mechanosensing through microsecond-scale all-atom molecular dynamics simulations.
-          My doctoral work produced 5+ first-author publications and podium presentations
-          at leading international conferences including the Biophysical Society Annual Meeting.
+          During my PhD in Bioengineering in <strong>Dr. Tamara Bidone's</strong> lab at the
+          University of Utah's Scientific Computing and Imaging Institute, I specialized in
+          all-atom molecular dynamics simulations, free-energy calculations, and structural
+          modeling to elucidate force-dependent conformational changes in transmembrane
+          proteins — with a focus on integrin mechanotransduction. My doctoral work produced
+          first-author publications in <em>Structure</em>, <em>Cellular and Molecular Life
+          Sciences</em>, and <em>Biophysical Journal</em>, along with podium presentations
+          at the Biophysical Society Annual Meeting.
         </p>
         <p>
-          My research bridges structural biology, biophysics, and machine learning —
-          from elucidating the conformational states of αIIbβ3 and αVβ3 integrins
-          to designing structure-based approaches for targeting integrins in cancer therapy.
+          Across both positions, my research integrates computational modeling, mechanistic
+          biophysics, and machine learning to reveal structure–function relationships in
+          complex membrane systems — with the goal of translating physical insight into
+          actionable biological understanding relevant to disease mechanisms and therapeutic design.
         </p>
         <div class="skills-section">
           <h4>Computational Tools</h4>
           <div class="chips">
             <span class="chip accent">GROMACS</span>
             <span class="chip accent">AlphaFold</span>
+            <span class="chip accent">RFdiffusion</span>
             <span class="chip accent">HADDOCK</span>
+            <span class="chip">ClusPro</span>
             <span class="chip">VMD</span>
             <span class="chip">PyMol</span>
+            <span class="chip">Chimera</span>
             <span class="chip">Python</span>
+            <span class="chip">Bash / Linux</span>
             <span class="chip">MATLAB</span>
             <span class="chip">NumPy / Pandas</span>
             <span class="chip">Matplotlib</span>
@@ -406,10 +424,13 @@
           <div class="chips">
             <span class="chip">Molecular Dynamics Simulations</span>
             <span class="chip">Enhanced Sampling</span>
+            <span class="chip">De novo Protein Design</span>
+            <span class="chip">IDR Targeting</span>
             <span class="chip">Protein Docking</span>
             <span class="chip">Free-Energy Calculations</span>
             <span class="chip">Membrane Protein Modeling</span>
-            <span class="chip">ML for Bioinformatics</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">High-Performance Computing</span>
           </div>
         </div>
       </div>
@@ -418,28 +439,35 @@
           <div class="icon"><i class="fas fa-microscope"></i></div>
           <div>
             <h4>Current Position</h4>
-            <p>Postdoctoral Research Fellow · Harvard Medical School · Chao Lab · Boston, MA</p>
+            <p>Postdoctoral Fellow · Chao Lab · Harvard Medical School &amp; Mass General Hospital · Since Jan 2026</p>
           </div>
         </div>
         <div class="info-card">
           <div class="icon"><i class="fas fa-graduation-cap"></i></div>
           <div>
             <h4>PhD in Bioengineering</h4>
-            <p>University of Utah · 2021–2025 · GPA 3.98/4.0</p>
+            <p>University of Utah · Aug 2021 – Dec 2025 · GPA 3.98/4.0</p>
           </div>
         </div>
         <div class="info-card">
           <div class="icon"><i class="fas fa-graduation-cap"></i></div>
           <div>
             <h4>MS in Bioengineering</h4>
-            <p>University of Utah · 2021–2024 · GPA 3.97/4.0</p>
+            <p>University of Utah · Aug 2021 – May 2024 · GPA 3.97/4.0</p>
           </div>
         </div>
         <div class="info-card">
           <div class="icon"><i class="fas fa-dna"></i></div>
           <div>
             <h4>Research Focus</h4>
-            <p>Integrin Biology · Mechanobiology · Computational Drug Design</p>
+            <p>Mitochondrial Biology · AI Protein Design · Membrane Dynamics</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-language"></i></div>
+          <div>
+            <h4>Languages</h4>
+            <p>English (fluent) · Persian (native)</p>
           </div>
         </div>
         <div class="info-card">
@@ -461,50 +489,55 @@
     <div class="divider"></div>
     <h2 class="section-title">My Research Focus</h2>
     <p class="section-subtitle">
-      I use molecular dynamics simulations and computational modeling to understand how proteins
-      sense and transduce mechanical signals — with applications in cancer therapy, thrombosis, and organoid development.
+      I integrate molecular dynamics simulations, AI-driven protein design, and high-performance computing
+      to reveal how proteins shape membrane architecture and function —
+      with relevance to neurodegenerative disease, metabolic disorders, and therapeutic design.
     </p>
     <div class="research-grid">
       <div class="research-card">
-        <div class="card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
-        <h3>Integrin Mechanobiology</h3>
+        <div class="card-icon"><i class="fas fa-circle-notch"></i></div>
+        <h3>Mitochondrial Membrane Dynamics</h3>
         <p>
-          Investigating how integrins αIIbβ3 and αVβ3 change conformation in response to mechanical force
-          and biochemical ligands. Using over 1 µs of all-atom MD simulations to elucidate novel
-          activation states and force-transduction pathways at the cell–matrix interface.
+          Current work in the Chao Lab: investigating the protein interaction network governing
+          mitochondrial outer membrane fusion and cristae remodeling. Extensive all-atom MD
+          simulations map hydrogen-bond occupancy, salt-bridge stability, and interface contacts
+          across replicas, identifying critical binding hotspots and conformational states.
         </p>
         <div class="tag-row">
-          <span class="tag">αIIbβ3 · αVβ3 Integrins</span>
+          <span class="tag">Chao Lab</span>
+          <span class="tag">Membrane Architecture</span>
+          <span class="tag">Cristae Remodeling</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="card-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI-Driven Protein Binder Design</h3>
+        <p>
+          Designing de novo protein binders against intrinsically disordered regions (IDRs) —
+          one of the most challenging frontiers in protein engineering. Leveraging diffusion-based
+          generative models (RFdiffusion), AlphaFold structure prediction, and multi-stage
+          filtering pipelines to identify high-confidence candidates before experimental validation.
+        </p>
+        <div class="tag-row">
+          <span class="tag">RFdiffusion</span>
+          <span class="tag">AlphaFold</span>
+          <span class="tag">De novo Design</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+        <h3>Integrin Mechanobiology (PhD)</h3>
+        <p>
+          Doctoral research in the Bidone Lab: how αIIbβ3 and αVβ3 integrins change conformation
+          in response to mechanical force and biochemical ligands. Over 1 µs of all-atom MD
+          simulations revealed novel activation states and force-transduction pathways,
+          published in <em>Structure</em>, <em>Cellular and Molecular Life Sciences</em>,
+          and <em>Biophysical Journal</em>.
+        </p>
+        <div class="tag-row">
+          <span class="tag">αIIbβ3 · αVβ3</span>
           <span class="tag">Force Transduction</span>
           <span class="tag">GROMACS</span>
-        </div>
-      </div>
-      <div class="research-card">
-        <div class="card-icon"><i class="fas fa-wave-square"></i></div>
-        <h3>Molecular Dynamics Simulations</h3>
-        <p>
-          Developing and running equilibrium and enhanced sampling MD simulations of membrane proteins.
-          Building Python-based automated pipelines for trajectory analysis, free-energy calculations,
-          and protein–ligand interaction profiling.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Enhanced Sampling</span>
-          <span class="tag">Free-Energy Calc.</span>
-          <span class="tag">Python Pipelines</span>
-        </div>
-      </div>
-      <div class="research-card">
-        <div class="card-icon"><i class="fas fa-pills"></i></div>
-        <h3>Computational Drug Design</h3>
-        <p>
-          Applying structure-based approaches and machine learning to discover novel integrin agonists
-          and therapeutic antibodies. Using AlphaFold and HADDOCK to model antibody–receptor interactions
-          and identify drug candidates for cancer and inflammation.
-        </p>
-        <div class="tag-row">
-          <span class="tag">AlphaFold · HADDOCK</span>
-          <span class="tag">Cancer Therapy</span>
-          <span class="tag">ML for Drug Discovery</span>
         </div>
       </div>
     </div>
@@ -525,6 +558,18 @@
 
     <p class="pub-section-label">Peer-Reviewed Articles</p>
     <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-content">
+          <h4>All-atom simulations reveal distinct pathways for α<sub>IIb</sub>β<sub>3</sub> activation by biochemical vs. mechanical cues</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Joshi O, Bidone TC, Schwartz M</p>
+          <p class="journal">Cellular and Molecular Life Sciences</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+          </div>
+        </div>
+      </div>
 
       <div class="pub-item">
         <span class="pub-year">2025</span>
@@ -616,17 +661,8 @@
 
     </div>
 
-    <p class="pub-section-label">In Preparation / Under Review</p>
+    <p class="pub-section-label">In Preparation</p>
     <div class="pub-list">
-
-      <div class="pub-item">
-        <span class="pub-year inprep">Under Review</span>
-        <div class="pub-content">
-          <h4>All-atom simulations reveal distinct pathways for α<sub>IIb</sub>β<sub>3</sub> activation by biochemical vs. mechanical cues</h4>
-          <p class="authors"><strong>Kolasangiani R</strong>, Joshi O, Bidone TC, Schwartz M</p>
-          <p class="journal">Cellular and Molecular Life Sciences &nbsp;·&nbsp; Revised &amp; Resubmitted</p>
-        </div>
-      </div>
 
       <div class="pub-item">
         <span class="pub-year inprep">In Prep</span>
@@ -656,27 +692,28 @@
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">2025 – Present</p>
-              <h4>Postdoctoral Research Fellow</h4>
-              <p class="tl-sub">Harvard Medical School · Chao Lab · Boston, MA</p>
+              <p class="tl-date">Jan 2026 – Present</p>
+              <h4>Postdoctoral Fellow</h4>
+              <p class="tl-sub">Chao Lab · Harvard Medical School &amp; Mass General Hospital · Boston, MA<br/>
+              <span style="font-size:0.75rem;">Mitochondrial membrane dynamics · AI-driven protein binder design (RFdiffusion · AlphaFold) · MD simulations</span></p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">Summer 2025</p>
+              <p class="tl-date">May 2025 – Aug 2025</p>
               <h4>Data Science Intern</h4>
               <p class="tl-sub">STC Biologics Inc. · Boston, MA<br/>
-              <span style="font-size:0.75rem;">ML for protein modeling, antibody–receptor interaction analysis, computational drug discovery</span></p>
+              <span style="font-size:0.75rem;">ML for protein modeling · AlphaFold + HADDOCK/ClusPro antibody docking · 5 novel therapeutic antibody candidates identified</span></p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">Sep 2021 – Aug 2025</p>
+              <p class="tl-date">Aug 2021 – Dec 2025</p>
               <h4>Graduate Research Assistant</h4>
-              <p class="tl-sub">University of Utah · Computational Biology Lab · Salt Lake City, UT<br/>
-              <span style="font-size:0.75rem;">1 µs+ MD simulations · 3 first-author publications · Mentored 3 undergrads</span></p>
+              <p class="tl-sub">Bidone Lab · Scientific Computing and Imaging Institute · University of Utah<br/>
+              <span style="font-size:0.75rem;">1 µs+ MD simulations · 3 first-author publications · Teaching Assistant (biophysics, statistics) · Mentored 3 undergrads</span></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -685,7 +722,7 @@
               <p class="tl-date">Sep 2018 – Jul 2021</p>
               <h4>Research Assistant</h4>
               <p class="tl-sub">Ferdowsi University of Mashhad · Iran<br/>
-              <span style="font-size:0.75rem;">Biomechanics, medical imaging, finite element modeling for orthopedic research</span></p>
+              <span style="font-size:0.75rem;">Biomechanics · FE modeling · Contributed to patented hip external fixator (US10314618B2)</span></p>
             </div>
           </div>
         </div>
@@ -697,7 +734,7 @@
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">Aug 2021 – Aug 2025</p>
+              <p class="tl-date">Aug 2021 – Dec 2025</p>
               <h4>PhD in Bioengineering</h4>
               <p class="tl-sub">University of Utah · Salt Lake City, UT</p>
               <p class="tl-gpa">GPA: 3.98 / 4.0</p>
@@ -706,7 +743,7 @@
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">2021 – 2024</p>
+              <p class="tl-date">Aug 2021 – May 2024</p>
               <h4>MS in Bioengineering</h4>
               <p class="tl-sub">University of Utah · Salt Lake City, UT</p>
               <p class="tl-gpa">GPA: 3.97 / 4.0</p>
@@ -715,9 +752,10 @@
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">Before 2021</p>
+              <p class="tl-date">2014 – 2018</p>
               <h4>BS in Mechanical Engineering</h4>
               <p class="tl-sub">Ferdowsi University of Mashhad · Iran</p>
+              <p class="tl-gpa">Top 15% of graduating class</p>
             </div>
           </div>
         </div>
@@ -736,9 +774,17 @@
           <div class="timeline-item">
             <div class="tl-dot"></div>
             <div class="tl-body">
-              <p class="tl-date">2021 – 2024</p>
+              <p class="tl-date">Aug 2022 – Sep 2024</p>
               <h4>President</h4>
-              <p class="tl-sub">Persian Student Association, University of Utah</p>
+              <p class="tl-sub">Persian Student Association (PERSA), University of Utah</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Aug 2021 – Aug 2022</p>
+              <h4>Vice-President</h4>
+              <p class="tl-sub">Persian Student Association (PERSA), University of Utah</p>
             </div>
           </div>
         </div>
@@ -788,9 +834,9 @@
     <div class="contact-grid">
       <div class="contact-info">
         <p>
-          I'm always open to discussing research collaborations, new ideas in integrin biology
-          and computational drug design, or postdoctoral and faculty opportunities.
-          Feel free to reach out — I'd love to connect.
+          I'm always open to discussing research collaborations, new ideas in
+          mitochondrial biology, AI-driven protein design, computational biophysics,
+          or faculty and industry opportunities. Feel free to reach out — I'd love to connect.
         </p>
         <div class="contact-items">
           <a class="contact-item" href="mailto:reza.kolasangiani@gmail.com">
@@ -803,7 +849,7 @@
           </a>
           <span class="contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            Harvard Medical School, Boston, MA
+            Harvard Medical School &amp; Mass General Hospital, Boston, MA
           </span>
         </div>
       </div>
@@ -832,13 +878,16 @@
 <!-- FOOTER -->
 <footer>
   <p>
-    © 2025 Reza Kolasangiani &nbsp;·&nbsp; Harvard Medical School &nbsp;·&nbsp;
+    © <span id="footerYear">2026</span> Reza Kolasangiani &nbsp;·&nbsp; Harvard Medical School &amp; Mass General Hospital &nbsp;·&nbsp;
     <a href="mailto:reza.kolasangiani@gmail.com">reza.kolasangiani@gmail.com</a> &nbsp;·&nbsp;
     <a href="https://www.linkedin.com/in/reza-kolasangiani/" target="_blank">LinkedIn</a>
   </p>
 </footer>
 
 <script>
+  // Keep footer year current forever
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
   // Active nav link on scroll
   const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
   const sections = document.querySelectorAll('section[id]');
