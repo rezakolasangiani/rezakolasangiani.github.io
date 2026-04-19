@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reza Kolasangiani | Computational Biologist · Harvard Medical School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2e4a;
+      --navy-light: #2a4570;
+      --accent: #c8102e;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-soft: #f9fafb;
+      --bg-section: #f3f6fb;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+      --card-hover: 0 4px 12px rgba(0,0,0,0.12), 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-weight: 700; font-size: 1.05rem; color: var(--navy); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 0.4rem 1rem; border-radius: 6px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--accent) !important; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, #f0f4f9 0%, #ffffff 60%);
+      position: relative; overflow: hidden;
+    }
+    #home::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(200,16,46,0.06) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(200,16,46,0.08); color: var(--accent);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.35rem 0.85rem;
+      border-radius: 100px; margin-bottom: 1.25rem;
+    }
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700;
+      color: var(--navy); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.5rem;
+    }
+    .title-line { font-size: 1.1rem; color: var(--text-muted); font-weight: 400; margin-bottom: 0.2rem; }
+    .institution { font-size: 1rem; color: var(--accent); font-weight: 600; margin-bottom: 0.15rem; }
+    .lab-line { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .bio-short {
+      font-size: 0.975rem; color: var(--text-muted); line-height: 1.8;
+      max-width: 520px; margin-bottom: 2rem;
+      font-family: 'Merriweather', serif; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.875rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--navy); color: white; }
+    .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,46,74,0.25); }
+    .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .btn-outline:hover { background: var(--navy); color: white; transform: translateY(-1px); }
+    .social-row { display: flex; gap: 0.75rem; }
+    .social-link {
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      border-radius: 8px; background: var(--bg-section); color: var(--text-muted);
+      text-decoration: none; font-size: 0.95rem; transition: all 0.2s;
+    }
+    .social-link:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+
+    /* Photo */
+    .photo-frame {
+      width: 300px; height: 360px; border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(26,46,74,0.18); position: relative;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .photo-initials { color: white; font-size: 4rem; font-weight: 700; letter-spacing: -0.05em; }
+    .photo-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 0.75rem 1rem;
+      box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 0.5rem;
+    }
+    .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+    .photo-badge span { font-size: 0.75rem; font-weight: 600; color: var(--text); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .section-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
+    .divider { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.975rem; }
+    .info-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .info-card {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .info-card .icon {
+      width: 40px; height: 40px; background: var(--navy); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .info-card h4 { font-size: 0.85rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+    .info-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* Skills chips */
+    .skills-section { margin-top: 2.5rem; }
+    .skills-section h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .chip {
+      font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.75rem;
+      border-radius: 100px; background: var(--bg-section);
+      border: 1px solid var(--border); color: var(--navy);
+    }
+    .chip.accent { background: rgba(200,16,46,0.07); border-color: rgba(200,16,46,0.2); color: var(--accent); }
+
+    /* ── RESEARCH ── */
+    #research { background: var(--bg-section); }
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .research-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem; transition: all 0.25s; position: relative; overflow: hidden;
+    }
+    .research-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .research-card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
+    .research-card:hover::before { transform: scaleX(1); }
+    .card-icon {
+      width: 48px; height: 48px; background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.25rem; margin-bottom: 1.25rem;
+    }
+    .research-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.65rem; }
+    .research-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .tag { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 100px; background: var(--bg-section); color: var(--navy); }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--bg); }
+    .pub-section-label {
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin: 2rem 0 1rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .pub-item {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      display: flex; gap: 1.25rem; align-items: flex-start; transition: all 0.2s;
+    }
+    .pub-item:hover { border-color: var(--navy); box-shadow: var(--card-shadow); }
+    .pub-year {
+      font-size: 0.72rem; font-weight: 700; color: var(--accent);
+      background: rgba(200,16,46,0.07); padding: 0.22rem 0.55rem;
+      border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 0.2rem;
+    }
+    .pub-year.inprep { background: rgba(107,114,128,0.1); color: var(--text-muted); }
+    .pub-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.5; }
+    .pub-content .authors { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .pub-content .authors strong { color: var(--navy); font-weight: 700; }
+    .pub-content .journal { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.5rem; }
+    .pub-links { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .pub-link {
+      font-size: 0.7rem; font-weight: 600; padding: 0.18rem 0.55rem;
+      border-radius: 5px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.25rem; transition: opacity 0.2s;
+    }
+    .pub-link.doi { background: rgba(26,46,74,0.08); color: var(--navy); }
+    .pub-link.cited { background: rgba(34,197,94,0.1); color: #15803d; }
+    .pub-link:hover { opacity: 0.75; }
+
+    /* ── CV ── */
+    #cv { background: var(--bg-section); }
+    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .cv-column h3 {
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 1.25rem; padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+    .timeline-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .tl-dot {
+      width: 10px; height: 10px; background: var(--accent);
+      border-radius: 50%; margin-top: 5px; flex-shrink: 0; position: relative;
+    }
+    .timeline-item:not(:last-child) .tl-dot::after {
+      content: ''; position: absolute; top: 10px; left: 4px;
+      width: 2px; height: calc(100% + 14px); background: var(--border);
+    }
+    .tl-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .tl-body .tl-sub { font-size: 0.8rem; color: var(--text-muted); }
+    .tl-body .tl-date { font-size: 0.72rem; color: var(--accent); font-weight: 600; margin-bottom: 0.1rem; }
+    .tl-body .tl-gpa { font-size: 0.72rem; color: #15803d; font-weight: 600; }
+
+    .cv-download-box {
+      margin-top: 3rem; background: var(--navy); border-radius: 16px;
+      padding: 2rem; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .cv-download-box h3 { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+    .cv-download-box p { font-size: 0.875rem; color: rgba(255,255,255,0.65); }
+    .btn-white { background: white; color: var(--navy); font-weight: 700; }
+    .btn-white:hover { background: var(--accent); color: white; transform: translateY(-1px); }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--bg); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .gallery-item {
+      border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;
+      background: var(--bg-section); border: 2px dashed var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .gallery-item:hover { border-color: var(--navy); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+    .gallery-placeholder i { font-size: 2rem; opacity: 0.25; }
+    .gallery-placeholder span { font-size: 0.78rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg-section); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-info p { font-size: 0.975rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; color: var(--text); font-size: 0.875rem; transition: color 0.2s;
+    }
+    .contact-item i {
+      width: 36px; height: 36px; background: var(--navy); color: white;
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+    }
+    .contact-item:hover { color: var(--accent); }
+    .contact-form { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .contact-form h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.35rem; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid var(--border);
+      border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.875rem;
+      color: var(--text); background: var(--bg-soft); transition: border-color 0.2s; outline: none; resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { min-height: 100px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.825rem; }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      #home { padding: 5rem 1.25rem 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo { order: -1; display: flex; justify-content: center; }
+      .photo-frame { width: 220px; height: 260px; }
+      .about-grid, .cv-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .cv-download-box { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="nav-brand" href="#home">Reza <span>Kolasangiani</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow"><i class="fas fa-atom"></i> Computational Biologist &amp; Bioengineer</div>
+      <h1>Reza Kolasangiani</h1>
+      <p class="title-line">Postdoctoral Research Fellow</p>
+      <p class="institution">Harvard Medical School</p>
+      <p class="lab-line">Chao Lab &nbsp;·&nbsp; Boston, MA</p>
+      <p class="bio-short">
+        I study how cells sense and respond to mechanical forces at the molecular level.
+        Using all-atom molecular dynamics simulations and computational modeling,
+        my research reveals how integrins — key proteins at the cell–matrix interface —
+        change shape in response to biochemical and mechanical cues,
+        with implications for cancer, thrombosis, and therapeutic design.
+      </p>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> My Research</a>
+        <a href="#publications" class="btn btn-outline"><i class="fas fa-book-open"></i> Publications</a>
+      </div>
+      <div class="social-row">
+        <a class="social-link" href="https://www.linkedin.com/in/reza-kolasangiani/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="social-link" href="mailto:reza.kolasangiani@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a class="social-link" href="https://scholar.google.com/citations?user=reza-kolasangiani" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a class="social-link" href="https://github.com/Reza9248" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div style="position:relative;">
+        <div class="photo-frame" id="photoFrame">
+          <img src="profile.jpg" alt="Reza Kolasangiani"
+               onload="document.getElementById('photoInit').style.display='none';"
+               onerror="this.style.display='none'; document.getElementById('photoInit').style.display='flex';" />
+          <div id="photoInit" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
+            <span class="photo-initials">RK</span>
+          </div>
+        </div>
+        <div class="photo-badge">
+          <div class="dot"></div>
+          <span>Open to Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-tag">About Me</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Background &amp; Expertise</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am a Postdoctoral Research Fellow in the Chao Lab at Harvard Medical School,
+          where I continue my work at the interface of computational biology, mechanobiology,
+          and therapeutic discovery.
+        </p>
+        <p>
+          I completed my PhD and MS in Bioengineering at the University of Utah (GPA 3.98/4.0),
+          where I spent four years in the Computational Biology Lab investigating integrin
+          mechanosensing through microsecond-scale all-atom molecular dynamics simulations.
+          My doctoral work produced 5+ first-author publications and podium presentations
+          at leading international conferences including the Biophysical Society Annual Meeting.
+        </p>
+        <p>
+          My research bridges structural biology, biophysics, and machine learning —
+          from elucidating the conformational states of αIIbβ3 and αVβ3 integrins
+          to designing structure-based approaches for targeting integrins in cancer therapy.
+        </p>
+        <div class="skills-section">
+          <h4>Computational Tools</h4>
+          <div class="chips">
+            <span class="chip accent">GROMACS</span>
+            <span class="chip accent">AlphaFold</span>
+            <span class="chip accent">HADDOCK</span>
+            <span class="chip">VMD</span>
+            <span class="chip">PyMol</span>
+            <span class="chip">Python</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">NumPy / Pandas</span>
+            <span class="chip">Matplotlib</span>
+          </div>
+          <h4>Research Methods</h4>
+          <div class="chips">
+            <span class="chip">Molecular Dynamics Simulations</span>
+            <span class="chip">Enhanced Sampling</span>
+            <span class="chip">Protein Docking</span>
+            <span class="chip">Free-Energy Calculations</span>
+            <span class="chip">Membrane Protein Modeling</span>
+            <span class="chip">ML for Bioinformatics</span>
+          </div>
+        </div>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-microscope"></i></div>
+          <div>
+            <h4>Current Position</h4>
+            <p>Postdoctoral Research Fellow · Harvard Medical School · Chao Lab · Boston, MA</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <h4>PhD in Bioengineering</h4>
+            <p>University of Utah · 2021–2025 · GPA 3.98/4.0</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <h4>MS in Bioengineering</h4>
+            <p>University of Utah · 2021–2024 · GPA 3.97/4.0</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-dna"></i></div>
+          <div>
+            <h4>Research Focus</h4>
+            <p>Integrin Biology · Mechanobiology · Computational Drug Design</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Location</h4>
+            <p>Boston, Massachusetts, USA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-tag">Research</p>
+    <div class="divider"></div>
+    <h2 class="section-title">My Research Focus</h2>
+    <p class="section-subtitle">
+      I use molecular dynamics simulations and computational modeling to understand how proteins
+      sense and transduce mechanical signals — with applications in cancer therapy, thrombosis, and organoid development.
+    </p>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+        <h3>Integrin Mechanobiology</h3>
+        <p>
+          Investigating how integrins αIIbβ3 and αVβ3 change conformation in response to mechanical force
+          and biochemical ligands. Using over 1 µs of all-atom MD simulations to elucidate novel
+          activation states and force-transduction pathways at the cell–matrix interface.
+        </p>
+        <div class="tag-row">
+          <span class="tag">αIIbβ3 · αVβ3 Integrins</span>
+          <span class="tag">Force Transduction</span>
+          <span class="tag">GROMACS</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+        <h3>Molecular Dynamics Simulations</h3>
+        <p>
+          Developing and running equilibrium and enhanced sampling MD simulations of membrane proteins.
+          Building Python-based automated pipelines for trajectory analysis, free-energy calculations,
+          and protein–ligand interaction profiling.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Enhanced Sampling</span>
+          <span class="tag">Free-Energy Calc.</span>
+          <span class="tag">Python Pipelines</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="card-icon"><i class="fas fa-pills"></i></div>
+        <h3>Computational Drug Design</h3>
+        <p>
+          Applying structure-based approaches and machine learning to discover novel integrin agonists
+          and therapeutic antibodies. Using AlphaFold and HADDOCK to model antibody–receptor interactions
+          and identify drug candidates for cancer and inflammation.
+        </p>
+        <div class="tag-row">
+          <span class="tag">AlphaFold · HADDOCK</span>
+          <span class="tag">Cancer Therapy</span>
+          <span class="tag">ML for Drug Discovery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <p class="section-tag">Publications</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">
+      Full list on
+      <a href="https://scholar.google.com" target="_blank" style="color:var(--accent);font-weight:600;">Google Scholar</a>.
+      <strong>Bold</strong> = Kolasangiani R.
+    </p>
+
+    <p class="pub-section-label">Peer-Reviewed Articles</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-content">
+          <h4>Structural dynamics of integrin α<sub>IIb</sub>β<sub>3</sub> activation from all-atom simulations: The impact of Mg²⁺ vs Mn²⁺</h4>
+          <p class="authors">Coffman RE, <strong>Kolasangiani R</strong>, Bidone TC</p>
+          <p class="journal">Biophysical Journal &nbsp;·&nbsp; Accepted</p>
+          <div class="pub-links">
+            <span class="pub-link doi"><i class="fas fa-check-circle"></i> Accepted</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-content">
+          <h4>Conformational response of α<sub>IIb</sub>β<sub>3</sub> and α<sub>v</sub>β<sub>3</sub> integrins to force</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Farzanian K, Chen Y, Schwartz MA, Bidone TC</p>
+          <p class="journal">Structure &nbsp;·&nbsp; 33(2): 289–299.e4</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2024</span>
+        <div class="pub-content">
+          <h4>Force-regulated conformational changes of α<sub>IIb</sub>β<sub>3</sub> and α<sub>v</sub>β<sub>3</sub> integrins: Insights from equilibrium and enhanced molecular dynamics simulations</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Farzanian K, Schwartz M, Bidone T</p>
+          <p class="journal">Biophysical Journal &nbsp;·&nbsp; 123(3): 15a</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2023</span>
+        <div class="pub-content">
+          <h4>α<sub>IIb</sub>β<sub>3</sub> integrin intermediates: From molecular dynamics to adhesion assembly</h4>
+          <p class="authors">Tong D, Soley N, <strong>Kolasangiani R</strong>, Schwartz MA, Bidone TC</p>
+          <p class="journal">Biophysical Journal &nbsp;·&nbsp; 122(3): 533–543</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+            <span class="pub-link cited"><i class="fas fa-quote-right"></i> Cited 17×</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2022</span>
+        <div class="pub-content">
+          <h4>Integrin conformational dynamics and mechanotransduction</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Bidone TC, Schwartz MA</p>
+          <p class="journal">Cells &nbsp;·&nbsp; 11(22): 3584</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+            <span class="pub-link cited"><i class="fas fa-quote-right"></i> Cited 42×</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2021</span>
+        <div class="pub-content">
+          <h4>Optimization of connecting rod design parameters for external fixation system: A biomechanical study</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Parchami K, Tahani M</p>
+          <p class="journal">The Journal of Foot and Ankle Surgery &nbsp;·&nbsp; 60(6): 1169–1174</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+            <span class="pub-link cited"><i class="fas fa-quote-right"></i> Cited 2×</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2020</span>
+        <div class="pub-content">
+          <h4>Bone fracture healing under external fixator: Investigating impacts of several design parameters using Taguchi and ANOVA</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Mohandes Y, Tahani M</p>
+          <p class="journal">Biocybernetics and Biomedical Engineering &nbsp;·&nbsp; 40(4): 1525–1534</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link doi"><i class="fas fa-external-link-alt"></i> DOI</a>
+            <span class="pub-link cited"><i class="fas fa-quote-right"></i> Cited 15×</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="pub-section-label">In Preparation / Under Review</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year inprep">Under Review</span>
+        <div class="pub-content">
+          <h4>All-atom simulations reveal distinct pathways for α<sub>IIb</sub>β<sub>3</sub> activation by biochemical vs. mechanical cues</h4>
+          <p class="authors"><strong>Kolasangiani R</strong>, Joshi O, Bidone TC, Schwartz M</p>
+          <p class="journal">Cellular and Molecular Life Sciences &nbsp;·&nbsp; Revised &amp; Resubmitted</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year inprep">In Prep</span>
+        <div class="pub-content">
+          <h4>TNK1 is a targetable JAK-independent driver of STAT signaling and inflammation</h4>
+          <p class="authors">López-Palacios TP, Madhusanka D, ..., <strong>Kolasangiani R</strong>, Bidone TC, ..., Andersen JL</p>
+          <p class="journal">In Preparation</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="section-inner">
+    <p class="section-tag">Curriculum Vitae</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Education &amp; Experience</h2>
+    <p class="section-subtitle">A summary of my academic and professional journey.</p>
+
+    <div class="cv-grid">
+      <div class="cv-column">
+        <h3><i class="fas fa-briefcase" style="margin-right:.5rem;"></i>Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">2025 – Present</p>
+              <h4>Postdoctoral Research Fellow</h4>
+              <p class="tl-sub">Harvard Medical School · Chao Lab · Boston, MA</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Summer 2025</p>
+              <h4>Data Science Intern</h4>
+              <p class="tl-sub">STC Biologics Inc. · Boston, MA<br/>
+              <span style="font-size:0.75rem;">ML for protein modeling, antibody–receptor interaction analysis, computational drug discovery</span></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Sep 2021 – Aug 2025</p>
+              <h4>Graduate Research Assistant</h4>
+              <p class="tl-sub">University of Utah · Computational Biology Lab · Salt Lake City, UT<br/>
+              <span style="font-size:0.75rem;">1 µs+ MD simulations · 3 first-author publications · Mentored 3 undergrads</span></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Sep 2018 – Jul 2021</p>
+              <h4>Research Assistant</h4>
+              <p class="tl-sub">Ferdowsi University of Mashhad · Iran<br/>
+              <span style="font-size:0.75rem;">Biomechanics, medical imaging, finite element modeling for orthopedic research</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-column">
+        <h3><i class="fas fa-graduation-cap" style="margin-right:.5rem;"></i>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Aug 2021 – Aug 2025</p>
+              <h4>PhD in Bioengineering</h4>
+              <p class="tl-sub">University of Utah · Salt Lake City, UT</p>
+              <p class="tl-gpa">GPA: 3.98 / 4.0</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">2021 – 2024</p>
+              <h4>MS in Bioengineering</h4>
+              <p class="tl-sub">University of Utah · Salt Lake City, UT</p>
+              <p class="tl-gpa">GPA: 3.97 / 4.0</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">Before 2021</p>
+              <h4>BS in Mechanical Engineering</h4>
+              <p class="tl-sub">Ferdowsi University of Mashhad · Iran</p>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <h3 style="margin-top:1rem;"><i class="fas fa-trophy" style="margin-right:.5rem;"></i>Service &amp; Leadership</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">2024 – 2025</p>
+              <h4>Vice-President</h4>
+              <p class="tl-sub">University of Utah Table Tennis Club</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <p class="tl-date">2021 – 2024</p>
+              <h4>President</h4>
+              <p class="tl-sub">Persian Student Association, University of Utah</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-download-box">
+      <div>
+        <h3>Download Full CV</h3>
+        <p>Complete publication list, conference presentations &amp; references · PDF format</p>
+      </div>
+      <a href="cv.pdf" class="btn btn-white"><i class="fas fa-download"></i> Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <p class="section-tag">Gallery</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Photos &amp; Highlights</h2>
+    <p class="section-subtitle">Conference moments, lab life, and collaborations. Drop your photos into this folder to populate the gallery!</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-users"></i><span>Lab / Team Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-chalkboard-teacher"></i><span>Conference Presentation</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-university"></i><span>Harvard Medical School</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-laptop-code"></i><span>Research / Lab Work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-tag">Contact</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>
+          I'm always open to discussing research collaborations, new ideas in integrin biology
+          and computational drug design, or postdoctoral and faculty opportunities.
+          Feel free to reach out — I'd love to connect.
+        </p>
+        <div class="contact-items">
+          <a class="contact-item" href="mailto:reza.kolasangiani@gmail.com">
+            <i class="fas fa-envelope"></i>
+            reza.kolasangiani@gmail.com
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/reza-kolasangiani/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+            linkedin.com/in/reza-kolasangiani
+          </a>
+          <span class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            Harvard Medical School, Boston, MA
+          </span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Your message..."></textarea>
+        </div>
+        <a href="mailto:reza.kolasangiani@gmail.com" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    © 2025 Reza Kolasangiani &nbsp;·&nbsp; Harvard Medical School &nbsp;·&nbsp;
+    <a href="mailto:reza.kolasangiani@gmail.com">reza.kolasangiani@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/reza-kolasangiani/" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+  // Active nav link on scroll
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + current) a.style.color = '#1a2e4a';
+    });
+  });
+</script>
+</body>
+</html>
